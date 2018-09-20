@@ -8,7 +8,6 @@ $url = "https://sheets.googleapis.com/v4/spreadsheets/{$spreadsheetId}/values/{$
 $json = file_get_contents($url);
 $json_decode = json_decode($json);
 
-ob_start(function($buf){ return mb_convert_encoding($buf, 'SJIS', 'UTF-8'); });
 foreach ($json_decode->values as $value) {
     echo "'".implode("','", $value)."'";
     echo "\n";
